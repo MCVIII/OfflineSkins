@@ -139,25 +139,13 @@ public class FabricOfflineSkins implements ClientModInitializer {
 
         SkinProviderAPI.SKIN.clearProviders();
         SkinProviderAPI.SKIN.registerProvider(new UserManagedSkinProvider(Paths.get(".", "cachedImages")).withFilter(ImageUtils::legacyFilter));
-        if (config.useCustomServer)
-            SkinProviderAPI.SKIN.registerProvider(new CustomServerSkinProvider().setHost(config.hostCustomServer).withFilter(ImageUtils::legacyFilter));
-        if (config.useCustomServer2)
-            SkinProviderAPI.SKIN.registerProvider(new CustomServerSkinProvider2().setHost(config.hostCustomServer2Skin).withFilter(ImageUtils::legacyFilter));
         if (config.useMojang)
             SkinProviderAPI.SKIN.registerProvider(new MojangSkinProvider().withFilter(ImageUtils::legacyFilter));
-        if (config.useCrafatar)
-            SkinProviderAPI.SKIN.registerProvider(new CrafatarSkinProvider().withFilter(ImageUtils::legacyFilter));
 
         SkinProviderAPI.CAPE.clearProviders();
         SkinProviderAPI.CAPE.registerProvider(new UserManagedCapeProvider(Paths.get(".", "cachedImages")));
-        if (config.useCustomServer)
-            SkinProviderAPI.CAPE.registerProvider(new CustomServerCapeProvider().setHost(config.hostCustomServer));
-        if (config.useCustomServer2)
-            SkinProviderAPI.CAPE.registerProvider(new CustomServerCapeProvider2().setHost(config.hostCustomServer2Cape));
         if (config.useMojang)
             SkinProviderAPI.CAPE.registerProvider(new MojangCapeProvider());
-        if (config.useCrafatar)
-            SkinProviderAPI.CAPE.registerProvider(new CrafatarCapeProvider());
     }
 
 }
